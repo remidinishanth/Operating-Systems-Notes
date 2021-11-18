@@ -58,6 +58,8 @@ We update `p1_inside` before entering the critical section, this achieves mutual
 
 ![image](https://user-images.githubusercontent.com/19663316/142469690-655ba485-adad-4ac0-9bd8-54622daec203.png)
 
+We need to find a way to come out of the deadlock.
+
 ## Concurrency control and Coordination
 
 - Mutual exclusion 
