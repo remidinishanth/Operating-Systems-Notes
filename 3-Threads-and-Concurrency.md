@@ -46,6 +46,9 @@ All critical sections solutions use the concepts of locking and unlocking
 
 ![image](https://user-images.githubusercontent.com/19663316/142456263-fa68ba98-05f3-4e35-bc6e-95998f063bcc.png)
 
+![image](https://user-images.githubusercontent.com/19663316/142467801-0ec0da60-37d5-4637-a003-cf34813cfe2b.png)
+
+
 
 ## Concurrency control and Coordination
 
