@@ -35,7 +35,8 @@
 * Mechanisms to create and manage threads
 * Mechanisms to safely coordinate among threads running concurrently in the same address space
 
-![image](https://user-images.githubusercontent.com/19663316/142453849-9c2c9af7-59ed-4f64-85af-46e2c7346de4.png)
+## Critical section
+![image](https://user-images.githubusercontent.com/19663316/142454800-f8158816-1b7f-4e4a-ad57-5785dfacc3dd.png)
 
 ## Concurrency control and Coordination
 
