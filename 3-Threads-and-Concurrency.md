@@ -32,6 +32,8 @@
 * Mechanisms to create and manage threads
 * Mechanisms to safely coordinate among threads running concurrently in the same address space
 
+![image](https://user-images.githubusercontent.com/19663316/142453849-9c2c9af7-59ed-4f64-85af-46e2c7346de4.png)
+
 ## Concurrency control and Coordination
 
 - Mutual exclusion 
