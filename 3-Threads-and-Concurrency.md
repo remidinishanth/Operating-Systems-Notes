@@ -54,7 +54,9 @@ The problem is that we are setting the flags (`p1_inside`, `p2_inside`) after we
 
 ![image](https://user-images.githubusercontent.com/19663316/142469398-931ef042-7236-4bfe-bb10-011216215dda.png)
 
-We update `p1_inside` before entering the critical section
+We update `p1_inside` before entering the critical section, this achieves mutual exclusion, but there might be deadlock.
+
+![image](https://user-images.githubusercontent.com/19663316/142469690-655ba485-adad-4ac0-9bd8-54622daec203.png)
 
 ## Concurrency control and Coordination
 
