@@ -38,6 +38,10 @@
 ## Critical section
 ![image](https://user-images.githubusercontent.com/19663316/142454800-f8158816-1b7f-4e4a-ad57-5785dfacc3dd.png)
 
+All critical sections solutions use the concepts of locking and unlocking
+![image](https://user-images.githubusercontent.com/19663316/142455038-d2609d58-de1f-4f08-b786-052ba9775707.png)
+
+
 ## Concurrency control and Coordination
 
 - Mutual exclusion 
