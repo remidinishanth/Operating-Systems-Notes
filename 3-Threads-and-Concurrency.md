@@ -50,6 +50,7 @@ All critical sections solutions use the concepts of locking and unlocking
 
 ![image](https://user-images.githubusercontent.com/19663316/142468926-9dc6f414-9f95-448b-8d1b-a60be71aae9f.png)
 
+The problem is that we are setting the flags (`p1_inside`, `p2_inside`) after we break from the while loop.
 
 ## Concurrency control and Coordination
 
