@@ -13,6 +13,9 @@
 
 ![processvthread](images/processvthread.png)
 
+![image](https://user-images.githubusercontent.com/19663316/142454624-956438de-8852-4d13-aabb-9509d127b16b.png)
+
+
 ## Why are threads useful?
 
 * Parallelization => Speedup
