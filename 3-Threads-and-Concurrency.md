@@ -63,6 +63,10 @@ We need to find a way to come out of the deadlock.
 ![image](https://user-images.githubusercontent.com/19663316/142470000-df40dc6d-15bc-45f7-bfea-2c4bdc642dea.png)
 
 
+Spinlocks vs mutex
+![image](https://user-images.githubusercontent.com/19663316/142827897-6147e1e1-8cad-4651-a927-bad1b9864987.png)
+
+
 ## Concurrency control and Coordination
 
 - Mutual exclusion 
