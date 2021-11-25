@@ -79,7 +79,7 @@ _Memory Management:_
     
 - To make a system call, an application must:
 	- write arguments
-    - save relevant data ast well defined location
+    - save relevant data at well defined location
     - make system calls using system call number
 - In synchronous mode : wait until system call completes.
 
