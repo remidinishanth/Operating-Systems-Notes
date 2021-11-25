@@ -20,7 +20,7 @@
 
 * Parallelization => Speedup
 * Specialization => Hot cache
-* Efficiency => lower memory requirement & cheaper IPC
+* Efficiency => lower memory requirement & cheaper IPC(Inter-Process Communication)
 * Time for context switch in threads is less, since memory is shared, hence mapping is not required between virtual and physical memory.
 	- Therefore multithreading can be used to hide latency.
 * Benefits to both applicatioons and OS code 
