@@ -72,6 +72,38 @@ Spinlocks vs mutex
 Semaphore
 ![image](https://user-images.githubusercontent.com/19663316/143428361-1c546045-4a18-489e-a6e2-266824f510cf.png)
 
+## Hardware Instuctions
+
+Special hardware instructions that allow us to either test-and-modify the content of a word, or to swap the contents of two words atomically (uninterruptedly.)
+
+* Test-and-Set instruction
+* Compare-and-Swap instruction
+
+### Test-and-Set instruction
+```c
+      boolean test_and_set (boolean *target)
+        {
+               boolean rv = *target;
+               *target = true;
+               return rv:
+        }
+```
+
+Properties
+* Executed atomically
+* Returns the original value of passed parameter
+* Set the new value of passed parameter to true
+
+```c
+do {
+    while(test_and_set(&lock)); /* do nothing */
+    /* critical section */
+    lock = false; 
+    /* remainder section */
+} while (true);
+```
+
+The first process will enter the critical section at once as `test_and_set(&lock)` will return false and it’ll break out of the while loop. The other processes cannot enter now as lock is set to true and so the while loop continues to be true. **Mutual exclusion is ensured.** Once the first process gets out of the critical section, lock is changed to false. So, now the other processes can enter one by one. **Progress is also ensured.** However, after the first process any process can go in. There is no queue maintained, so any new process that finds the lock to be false again, can enter. **So bounded waiting is not ensured.** 
 
 ## Concurrency control and Coordination
 
