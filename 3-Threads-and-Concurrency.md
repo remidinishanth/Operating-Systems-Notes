@@ -70,7 +70,7 @@ Spinlocks vs mutex
 ![image](https://user-images.githubusercontent.com/19663316/142827897-6147e1e1-8cad-4651-a927-bad1b9864987.png)
 
 Semaphore
-![image](https://user-images.githubusercontent.com/19663316/143400709-97480673-c975-4142-a821-896218819877.png)
+![image](https://user-images.githubusercontent.com/19663316/143428361-1c546045-4a18-489e-a6e2-266824f510cf.png)
 
 
 ## Concurrency control and Coordination
