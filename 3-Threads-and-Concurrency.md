@@ -127,8 +127,10 @@ unlock(mutex)
 
 ![image](https://user-images.githubusercontent.com/19663316/143399283-220538f7-db58-4e31-b7f0-1cdc16102ebb.png)
 
+Solution using 3 mutex
 ![image](https://user-images.githubusercontent.com/19663316/143399802-7f70aeec-de44-4c06-99d6-e1dbfe164af9.png)
 
+![image](https://user-images.githubusercontent.com/19663316/143400071-f1de2700-4e22-47f1-8d94-2e0c11cb26ed.png)
 
 What if the processing you wish to perform with mutual exclusion needs to occur under certain conditions?
 
