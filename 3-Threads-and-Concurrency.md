@@ -66,6 +66,9 @@ We need to find a way to come out of the deadlock.
 Spinlocks vs mutex
 ![image](https://user-images.githubusercontent.com/19663316/142827897-6147e1e1-8cad-4651-a927-bad1b9864987.png)
 
+Semaphore
+![Uploading image.png…]()
+
 
 ## Concurrency control and Coordination
 
