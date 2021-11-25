@@ -36,6 +36,9 @@
 * Mechanisms to safely coordinate among threads running concurrently in the same address space
 
 ## Critical section
+
+![image](https://user-images.githubusercontent.com/19663316/143424805-ce8c4a20-f290-4154-b292-58d5778944a9.png)
+
 ![image](https://user-images.githubusercontent.com/19663316/142454800-f8158816-1b7f-4e4a-ad57-5785dfacc3dd.png)
 
 All critical sections solutions use the concepts of locking and unlocking
