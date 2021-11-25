@@ -67,7 +67,7 @@ Spinlocks vs mutex
 ![image](https://user-images.githubusercontent.com/19663316/142827897-6147e1e1-8cad-4651-a927-bad1b9864987.png)
 
 Semaphore
-![Uploading image.png…]()
+![image](https://user-images.githubusercontent.com/19663316/143400709-97480673-c975-4142-a821-896218819877.png)
 
 
 ## Concurrency control and Coordination
@@ -134,6 +134,10 @@ Solution using 3 mutex
 ![image](https://user-images.githubusercontent.com/19663316/143399802-7f70aeec-de44-4c06-99d6-e1dbfe164af9.png)
 
 ![image](https://user-images.githubusercontent.com/19663316/143400071-f1de2700-4e22-47f1-8d94-2e0c11cb26ed.png)
+
+Using Semaphore
+
+![image](https://user-images.githubusercontent.com/19663316/143400811-c9e4891c-673c-4210-89dc-8dc22dc26e4a.png)
 
 What if the processing you wish to perform with mutual exclusion needs to occur under certain conditions?
 
