@@ -139,6 +139,8 @@ Using Semaphore
 
 ![image](https://user-images.githubusercontent.com/19663316/143400811-c9e4891c-673c-4210-89dc-8dc22dc26e4a.png)
 
+![image](https://user-images.githubusercontent.com/19663316/143401222-d2f8ae4f-de8e-4131-ac93-95c8f6190738.png)
+
 What if the processing you wish to perform with mutual exclusion needs to occur under certain conditions?
 
 For e.g. The producer appends items to a list until the list is full, and the consumer has to print out all the items of the list once the list if full and then empty the list. Thus we have to execute the Consumer thread only under a certain condition (here- when the list becomes empty, print items).
