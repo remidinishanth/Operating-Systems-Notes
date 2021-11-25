@@ -127,6 +127,9 @@ unlock(mutex)
 
 ![image](https://user-images.githubusercontent.com/19663316/143399283-220538f7-db58-4e31-b7f0-1cdc16102ebb.png)
 
+![image](https://user-images.githubusercontent.com/19663316/143399802-7f70aeec-de44-4c06-99d6-e1dbfe164af9.png)
+
+
 What if the processing you wish to perform with mutual exclusion needs to occur under certain conditions?
 
 For e.g. The producer appends items to a list until the list is full, and the consumer has to print out all the items of the list once the list if full and then empty the list. Thus we have to execute the Consumer thread only under a certain condition (here- when the list becomes empty, print items).
