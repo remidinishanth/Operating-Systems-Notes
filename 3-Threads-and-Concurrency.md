@@ -203,6 +203,15 @@ Thus essentially we can apply mutex on the new proxy 'resource_counter' variable
 
 When we wake up threads knowing they may not be able to proceed.
 
+## Why to use while loop when waiting on condition vairables
+It is recommended that all threads check the condition after returning from pthread_cond_wait because there are several reasons the condition might not be true. One of these reasons is a spurious wakeup; that is, a thread might get woken up even though no thread signalled the condition.
+
+source: https://stackoverflow.com/questions/7766057/why-do-you-need-a-while-loop-while-waiting-for-a-condition-variable
+
+A spurious wakeup happens when a thread wakes up from waiting on a condition variable that's been signaled, only to discover that the condition it was waiting for isn't satisfied. It's called spurious because the thread has seemingly been awakened for no reason. But spurious wakeups don't happen for no reason: they usually happen because, in between the time when the condition variable was signaled and when the waiting thread finally ran, another thread ran and changed the condition. There was a race condition between the threads, with the typical result that sometimes, the thread waking up on the condition variable runs first, winning the race, and sometimes it runs second, losing the race.
+
+source: https://en.wikipedia.org/wiki/Spurious_wakeup
+
 ## Deadlocks
 
 Two or more competing threads are said to be in a deadlock if they are waiting on each other to complete, but none of them ever do.
