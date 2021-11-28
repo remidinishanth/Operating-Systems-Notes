@@ -155,6 +155,14 @@ while (true) {
 }
 ```
 
+Mutual Exclusion:
+* To prove that the mutual-exclusion requirement is met, we note that process Pi can enter its critical section only if either `waiting[i] == false` or
+`key == 0`. 
+* The value of key can become `0` only if the compare and swap() is executed. The first process to execute the `compare_and_swap()` will find `key
+== 0;` all others must wait. 
+* The variable `waiting[i]` can become false only if another process leaves its critical section; only one `waiting[i]` is set to false,
+maintaining the mutual-exclusion requirement.
+
 ## Concurrency control and Coordination
 
 - Mutual exclusion 
