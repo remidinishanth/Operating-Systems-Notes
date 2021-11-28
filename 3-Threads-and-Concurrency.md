@@ -134,7 +134,26 @@ Shared integer  lock  initialized to 0;
     } 
 ```
 
+Bounded-waiting Mutual Exclusion with compare-and-swap
 
+```cpp
+while (true) {
+    waiting[i] = true;
+    key = 1;
+    while (waiting[i] && key == 1)
+        key = compare_and_swap(&lock,0,1);
+    waiting[i] = false;
+    /* critical section */
+    j = (i + 1) % n;
+    while ((j != i) && !waiting[j])
+        j = (j + 1) % n;
+    if (j == i)
+        lock = 0;
+    else
+        waiting[j] = false;
+    /* remainder section */
+}
+```
 
 ## Concurrency control and Coordination
 
