@@ -105,6 +105,37 @@ do {
 
 The first process will enter the critical section at once as `test_and_set(&lock)` will return false and it’ll break out of the while loop. The other processes cannot enter now as lock is set to true and so the while loop continues to be true. **Mutual exclusion is ensured.** Once the first process gets out of the critical section, lock is changed to false. So, now the other processes can enter one by one. **Progress is also ensured.** However, after the first process any process can go in. There is no queue maintained, so any new process that finds the lock to be false again, can enter. **So bounded waiting is not ensured.** 
 
+### Compare and Swap Interaction
+
+```cpp
+int compare_and_swap(int *value, int expected, int new_value)
+{                  
+    int temp = *value; 
+    if (*value == expected) 
+        *value = new_value; 
+    return temp; 
+} 
+```
+
+Properties
+* Executed atomically
+* Returns the original value of passed parameter `value`
+* Set  the variable `value` the value of the passed parameter `new_value` but only if `*value == expected` is true. That is, the swap takes place only under this condition.
+
+Shared integer  lock  initialized to 0; 
+
+
+```cpp
+    while(true){
+        while(compare_and_swap(&lock, 0, 1) != 0) ; /* do nothing */
+       	/* critical section */ 
+       	lock = 0; 
+        /* remainder section */ 
+    } 
+```
+
+
+
 ## Concurrency control and Coordination
 
 - Mutual exclusion 
