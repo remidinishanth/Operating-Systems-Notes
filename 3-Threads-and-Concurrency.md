@@ -128,8 +128,8 @@ Shared integer  lock  initialized to 0;
 ```cpp
     while(true){
         while(compare_and_swap(&lock, 0, 1) != 0) ; /* do nothing */
-       	/* critical section */ 
-       	lock = 0; 
+       	/* critical section */
+       	lock = 0;
         /* remainder section */ 
     } 
 ```
