@@ -281,6 +281,34 @@ State of shared resource:
 
 Thus essentially we can apply mutex on the new proxy 'resource_counter' variable that represents the state of the shared resource.
 
+
+In the solution to the first readers–writers problem, the reader processes share the following data structures:
+```cpp
+semaphore rw_mutex = 1;
+semaphore mutex = 1;
+int read_count = 0;
+```
+
+The binary semaphores `mutex` and `rw_mutex` are initialized to 1; `read_count` is a counting semaphore initialized to 0.
+
+Structure of reader process
+```c
+while(true) {
+    wait(mutex);
+    read count++;
+    if (read_count == 1)
+        wait(rw mutex);
+    signal(mutex);
+    ...
+    /* reading is performed */
+    ... wait(mutex);
+    read_count--;
+    if (read_count == 0)
+        signal(rw mutex);
+    signal(mutex);
+}
+```
+
 ## Avoiding common mistakes
 
 - keep track of mutex/lock variable used with a resource
