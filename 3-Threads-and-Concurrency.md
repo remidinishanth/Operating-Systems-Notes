@@ -265,11 +265,11 @@ Solution: Use **Condition Variables**
 - Better solution:
 
 ```
-if ((read_count == 0) & (read_count == 0))
+if ((read_count == 0) & (write_count == 0))
 	R okay, W okay
 if (read_count > 0)
 	R okay    
-if (read_count == 1)
+if (write_count == 1)
 	R not-okay, W not-okay    
 ```
 
