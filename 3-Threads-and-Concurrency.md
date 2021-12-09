@@ -69,6 +69,14 @@ We need to find a way to come out of the deadlock.
 Spinlocks vs mutex
 ![image](https://user-images.githubusercontent.com/19663316/142827897-6147e1e1-8cad-4651-a927-bad1b9864987.png)
 
+![image](https://user-images.githubusercontent.com/19663316/145453108-07ce5c49-5448-4d9c-b8e9-1da67e6cf2ef.png)
+
+![image](https://user-images.githubusercontent.com/19663316/145453128-fdc92fe3-7751-4c45-b383-899c73af8bc0.png)
+
+![image](https://user-images.githubusercontent.com/19663316/145453205-952107de-d0c9-42fb-8d80-3a77c8188f74.png)
+
+![image](https://user-images.githubusercontent.com/19663316/145453250-070ada61-e408-40a2-a3bd-36727373bf4a.png)
+
 Semaphore
 ![image](https://user-images.githubusercontent.com/19663316/143428361-1c546045-4a18-489e-a6e2-266824f510cf.png)
 
