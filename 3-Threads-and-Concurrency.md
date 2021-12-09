@@ -205,6 +205,7 @@ join(t1); //Optional
 
 The list can be accessed by reading shared variable.
 
+
 ## Mutual Exclusion
 
 - Mutex data structure:
@@ -218,6 +219,109 @@ lock(mutex){
 unlock(mutex)
 ```
 ![mutex](images/mutex.png)
+
+## Condition Variables
+
+Higher-level synchronization mechanism that provides
+- Mutual exclusion: easy to create critical sections
+- Scheduling: block thread until some desired event occurs
+
+### Locks
+
+Lock: an object that can only be owned by a single thread at any given time. Basic operations on a lock:
+- acquire: mark the lock as owned by the current thread; if some other thread already owns the lock then first wait until the lock is free. Lock typically includes a queue to keep track of multiple waiting threads.
+- release: mark the lock as free (it must currently be owned by the calling thread).
+
+Too much milk solution with locks (using Pintos APIs):
+
+```c
+struct lock l;
+...
+lock_acquire(&l);
+if (milk == 0) {
+  buy_milk();
+}
+lock_release(&l);
+```
+
+A more complex example: producer/consumer.
+
+* Producers add characters to a buffer
+* Consumers remove characters from the buffer
+* Characters will be removed in the same order added
+
+#### Version 1:
+```c
+char buffer[SIZE];
+int count = 0, putIndex = 0, getIndex = 0;
+struct lock l;
+lock_init(&l);
+
+void put(char c) {
+    lock_acquire(&l);
+    count++;
+    buffer[putIndex] = c;
+    putIndex++;
+    if (putIndex == SIZE) {
+        putIndex = 0;
+    }
+    lock_release(&l);
+}
+
+char get() {
+    char c;
+    lock_acquire(&l);
+    count--;
+    c = buffer[getIndex];
+    getIndex++;
+    if (getIndex == SIZE) {
+        getIndex = 0;
+    }
+    lock_release(&l);
+    return c;
+}
+```
+
+#### Version 2 (handle empty/full cases):
+
+```c
+char buffer[SIZE];
+int count = 0, putIndex = 0, getIndex = 0;
+struct lock l;
+lock_init(&l);
+
+void put(char c) {
+    lock_acquire(&l);
+    while (count == SIZE) {
+        lock_release(&l);
+        lock_acquire(&l);
+    }
+    count++;
+    buffer[putIndex] = c;
+    putIndex++;
+    if (putIndex == SIZE) {
+        putIndex = 0;
+    }
+    lock_release(&l);
+}
+
+char get() {
+    char c;
+    lock_acquire(&l);
+    while (count == 0) {
+        lock_release(&l);
+        lock_acquire(&l);
+    }
+    count--;
+    c = buffer[getIndex];
+    getIndex++;
+    if (getIndex == SIZE) {
+        getIndex = 0;
+    }
+    lock_release(&l);
+    return c;
+}
+```
 
 ## Producer Consumer problem
 
