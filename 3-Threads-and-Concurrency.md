@@ -195,7 +195,7 @@ child_result = join(t1)
 
 ### Example:
 
-```
+```c
 Thread  t1;
 Shared_List list;
 t1 = fork(safe_insert, 4);
@@ -211,13 +211,14 @@ The list can be accessed by reading shared variable.
 - Mutex data structure:
 	- locked?, owner, blocked_threads
     
-```
+```c
 lock(mutex){
-	//Critical Section
-    //Only one thread can access at a time
+    // Critical Section
+    // Only one thread can access at a time
 }
 unlock(mutex)
 ```
+
 ![mutex](images/mutex.png)
 
 ## Condition Variables
@@ -322,6 +323,72 @@ char get() {
     return c;
 }
 ```
+
+## Condition Variables
+
+Synchronization mechanisms need more than just mutual exclusion; also need a way to wait for another thread to do something (e.g., wait for a character to be added to the buffer)
+
+Condition variables: used to wait for a particular condition to become true (e.g. characters in buffer).
+- `wait(condition, lock)`: release lock, put thread to sleep until condition is signaled; when thread wakes up again, re-acquire lock before returning.
+- `signal(condition, lock)`: if any threads are waiting on condition, wake up one of them. Caller must hold lock, which must be the same as the lock used in the wait call.
+- `broadcast(condition, lock)`: same as signal, except wake up all waiting threads.
+- Note: after `signal`, signaling thread keeps lock, waking thread goes on the queue waiting for the lock.
+- Warning: when a thread wakes up after `cond_wait` there is no guarantee that the desired condition still exists: another thread might have snuck in.
+
+#### Producer/Consumer, version 3 (with condition variables):
+
+```c
+char buffer[SIZE];
+int count = 0, putIndex = 0, getIndex = 0;
+struct lock l;
+struct condition dataAvailable;
+struct condition spaceAvailable;
+
+lock_init(&l);
+cond_init(&dataAvailable);
+cond_init(&spaceAvailable);
+
+void put(char c) {
+    lock_acquire(&l);
+    while (count == SIZE) {
+        cond_wait(&spaceAvailable, &l);
+    }
+    count++;
+    buffer[putIndex] = c;
+    putIndex++;
+    if (putIndex == SIZE) {
+        putIndex = 0;
+    }
+    cond_signal(&dataAvailable, &l);
+    lock_release(&l);
+}
+
+char get() {
+    char c;
+    lock_acquire(&l);
+    while (count == 0) {
+        cond_wait(&dataAvailable, &l);
+    }
+    count--;
+    c = buffer[getIndex];
+    getIndex++;
+    if (getIndex == SIZE) {
+        getIndex = 0;
+    }
+    cond_signal(&spaceAvailable, &l);
+    lock_release(&l);
+    return c;
+}
+```
+
+source: https://web.stanford.edu/~ouster/cgi-bin/cs140-spring14/lecture.php?topic=locks
+
+## Monitors
+When locks and condition variables are used together like this, the result is called a monitor :
+* A collection of procedures manipulating a shared data structure.
+* One lock that must be held whenever accessing the shared data (typically each procedure acquires the lock at the very beginning and releases the lock before returning).
+* One or more condition variables used for waiting.
+There are other synchronization mechanisms besides locks and condition variables. Be sure to read about semaphores in the book or in the Pintos documentation.
 
 ## Producer Consumer problem
 
