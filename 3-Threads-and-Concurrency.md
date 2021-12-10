@@ -391,6 +391,9 @@ char get() {
 
 source: https://web.stanford.edu/~ouster/cgi-bin/cs140-spring14/lecture.php?topic=locks
 
+![image](https://user-images.githubusercontent.com/19663316/145630047-2ca833c6-255f-4708-8950-2a336d9738af.png)
+
+
 ## Monitors
 When locks and condition variables are used together like this, the result is called a monitor :
 * A collection of procedures manipulating a shared data structure.
