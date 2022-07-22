@@ -1,5 +1,6 @@
 ### TODO: https://www.educative.io/edpresso/what-are-locks-in-python and https://www.pythontutorial.net/advanced-python/python-threading-lock/
 
+Also check https://courses.engr.illinois.edu/cs241/sp2012/lectures/25-condition.pdf
 
 ## Web Crawling
 
