@@ -1,4 +1,10 @@
-Awesome introduction:
+<img width="1073" alt="image" src="https://user-images.githubusercontent.com/19663316/210200785-8d7c3d15-62e7-4da2-8f85-f057795b3292.png">
+
+<img width="1073" alt="image" src="https://user-images.githubusercontent.com/19663316/210200808-d22ee88c-dd37-47c1-b479-7af1e39b5b1e.png">
+
+Ref: https://www.cs.cmu.edu/afs/cs/academic/class/15418-f18/www/lectures/17_lockfree.pdf
+
+### Awesome introduction:
 
 https://www.baeldung.com/lock-free-programming#linked-queue-multiple-threads
 
